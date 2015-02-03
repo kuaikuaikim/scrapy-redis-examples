@@ -1,9 +1,8 @@
 scrapy-redis-examples
 ==============
 
-A scrapy project integrated with redis. we can use redis to do many things during scrapy work.
-
-Rember dont use it to do anything illegal!
+A scrapy project integrated with redis. we can use redis to do many things during scrapy work.  
+**Rember dont use it to do anything illegal!**
 
 ####Usage
     apt-get update  
@@ -12,8 +11,8 @@ Rember dont use it to do anything illegal!
     cd scrapy-redis-examples & scrapy crawl hrtencent  
 
 ####New Features
-1.Rembere the scrapy crawled status. Make sure every page we just craw once.
-2.Improve the scrapy performance. It works faster with redis. I rewrite some core module spider logic to the redis.
+1.Rembere the scrapy crawled status. Make sure every page we just craw once.  
+2.Improve the scrapy performance. It works faster with redis. I rewrite some core module spider logic to the redis.  
 3.Ouput scrapy results with distributed small files.Avoid losing all results during craw pages when been interrupted.
 
 
