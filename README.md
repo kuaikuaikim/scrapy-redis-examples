@@ -1,53 +1,20 @@
-scrapy-examples
+scrapy-redis-examples
 ==============
 
-Multifarious scrapy examples with integrated proxies and agents, which make you comfy to write a spider.
+A scrapy project integrated with redis. we can use redis to do many things during scrapy work.
 
-Dont use it to do anything illegal!
+Rember dont use it to do anything illegal!
 
-####PREREQUISITE
+####Usage
+    apt-get update  
+    sudo apt-get install redis-server  
+    git clone ...  
+    cd scrapy-redis-examples & scrapy crawl hrtencent  
 
-* Scrapy 0.22
-  > Check https://github.com/scrapy/scrapy
+####New Features
+1.Rembere the scrapy crawled status. Make sure every page we just craw once.
+2.Improve the scrapy performance. It works faster with redis. I rewrite some core module spider logic to the redis.
+3.Ouput scrapy results with distributed small files.Avoid losing all results during craw pages when been interrupted.
 
-* Goagent
-  > If you don't want to use proxy, just comment the proxy middleware in settings.  
-  > Or if you want to custom it, you can hack `misc/proxy.py`
 
-####Avaiable Spiders
 
-* linkedin
-  * linkedin
-* tutorial
-  * dmoz_item
-  * douban_book
-  * page_recorder
-  * douban_tag_book
-* doubanbook
-  * doubanbook
-* hrtencent
-  * hrtencent
-* sis
-  * sis
-
-***
-
-##doubanbook spider
-
-####Tutorial
-
-    git clone https://github.com/geekan/scrapy-examples
-    cd scrapy-examples/doubanbook
-    scrapy crawl doubanbook
-
-####Depth
-
-There are several depths in the spider, and the spider gets
-real data from depth2.
-
-- Depth0: The entrance is `http://book.douban.com/tag/`
-- Depth1: Urls like `http://book.douban.com/tag/外国文学` from depth0
-- Depth2: Urls like `http://book.douban.com/subject/1770782/` from depth1
-
-####Example image
-![douban book](https://raw2.github.com/geekan/cowry/master/image/doubanbook.jpg)
