@@ -12,7 +12,7 @@ REDIS_PORT = 6379
 SCHEDULER_PERSIST = False
 QUEUE_KEY = '%(spider)s:requests'
 QUEUE_CLASS = '.queue.SpiderPriorityQueue'
-DUPEFILTER_KEY = '%(spider)s:dewen'
+DUPEFILTER_KEY = '%(spider)s:scrapy_example'
 
 
 class Scheduler(object):

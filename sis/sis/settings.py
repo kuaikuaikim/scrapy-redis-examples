@@ -1,4 +1,4 @@
-# Scrapy settings for hrtencent project
+# Scrapy settings for sis project
 #
 # For simplicity, this file contains only the most important settings by
 # default. All the other settings are documented here:
@@ -11,30 +11,23 @@ import os
 from os.path import dirname
 path = dirname(dirname(os.path.abspath(os.path.dirname(__file__))))
 sys.path.append(path)
+from misc.log import *
 
+BOT_NAME = 'sis'
 
-BOT_NAME = 'hrtencent'
-
-SPIDER_MODULES = ['hrtencent.spiders']
-NEWSPIDER_MODULE = 'hrtencent.spiders'
+SPIDER_MODULES = ['sis.spiders']
+NEWSPIDER_MODULE = 'sis.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'hrtencent (+http://www.yourdomain.com)'
+#USER_AGENT = 'sis (+http://www.yourdomain.com)'
 DOWNLOADER_MIDDLEWARES = {
     'misc.middleware.CustomHttpProxyMiddleware': 400,
     'misc.middleware.CustomUserAgentMiddleware': 401,
 }
 
 ITEM_PIPELINES = {
-    'hrtencent.pipelines.JsonWithEncodingPipeline': 300,
-    'scrapy.contrib.pipeline.images.ImagesPipeline': 1
+    'sis.pipelines.JsonWithEncodingPipeline': 300,
 }
-
-#DUPEFILTER_CLASS = 'hrtencent.filterurls.CustomFilter'
 
 LOG_LEVEL = 'INFO'
 
-SCHEDULER = "hrtencent.scrapy_redis.scheduler.Scheduler"
-SCHEDULER_PERSIST = False
-SCHEDULER_QUEUE_CLASS = 'hrtencent.scrapy_redis.queue.SpiderPriorityQueue'
-IMAGES_STORE = 'storage/images/'

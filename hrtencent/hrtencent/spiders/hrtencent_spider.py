@@ -20,7 +20,7 @@ class HrtencentSpider(CrawlSpider):
     name = "hrtencent"
     allowed_domains = ["dewen.io"]
     start_urls = [
-        "http://www.dewen.io/questions?page=%d" % d for d in range(1, 100, 1)
+        "http://www.dewen.io/questions?page=%d" % d for d in range(1, 10, 1)
     ]
     rules = [
         Rule(sle(allow=("/q/\d*")), callback='parse_2'),
@@ -37,6 +37,12 @@ class HrtencentSpider(CrawlSpider):
         #item['duty'] = site.css('.c .l2::text').extract()
         item['link'] = response.url
         item['tags'] = site.css('#topic a::text').extract()
+        
+        #get content images url
+        images_1 = sel.css('#qst_content img::attr(loadsrc)').extract()
+        images_2 = sel.css('.post_area img::attr(loadsrc)').extract()
+        item['image_urls'] = images_1 + images_2
+
         answers = []
 
         an_articles = site.css('.ans_item')

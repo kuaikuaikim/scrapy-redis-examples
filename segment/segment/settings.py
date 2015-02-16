@@ -12,11 +12,10 @@ from os.path import dirname
 path = dirname(dirname(os.path.abspath(os.path.dirname(__file__))))
 sys.path.append(path)
 
+BOT_NAME = 'segment'
 
-BOT_NAME = 'hrtencent'
-
-SPIDER_MODULES = ['hrtencent.spiders']
-NEWSPIDER_MODULE = 'hrtencent.spiders'
+SPIDER_MODULES = ['segment.spiders']
+NEWSPIDER_MODULE = 'segment.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'hrtencent (+http://www.yourdomain.com)'
@@ -26,15 +25,8 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 ITEM_PIPELINES = {
-    'hrtencent.pipelines.JsonWithEncodingPipeline': 300,
-    'scrapy.contrib.pipeline.images.ImagesPipeline': 1
+    'segment.pipelines.JsonWithEncodingPipeline': 300,
 }
-
-#DUPEFILTER_CLASS = 'hrtencent.filterurls.CustomFilter'
 
 LOG_LEVEL = 'INFO'
 
-SCHEDULER = "hrtencent.scrapy_redis.scheduler.Scheduler"
-SCHEDULER_PERSIST = False
-SCHEDULER_QUEUE_CLASS = 'hrtencent.scrapy_redis.queue.SpiderPriorityQueue'
-IMAGES_STORE = 'storage/images/'
